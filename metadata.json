@@ -1,0 +1,6 @@
+{
+  "name": "Hotel Kalpview",
+  "description": "Premium hotel booking website for Hotel Kalpview Gwalior, featuring interactive room reservations, responsive booking calendar, custom photo gallery, and curated service descriptions near Gwalior Fort.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
