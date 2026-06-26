@@ -18,7 +18,8 @@ export default function PhotoGallery() {
     {
       id: 'gal-1',
       category: 'scenic',
-      src: '/src/assets/images/img1.jpeg',
+
+      src: '../assets/images/img1.jpeg',
       alt: 'Kalpview banquet hall decorated with flower wall, hanging florals and balloon decor',
       title: 'Celebration Banquet Hall',
       tag: 'Events & Weddings'
@@ -26,7 +27,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-2',
       category: 'dining',
-      src: '/src/assets/images/img2.jpeg',
+      src: '../assets/images/img2.jpeg',
       alt: 'Kalpview air-conditioned restaurant with orange walls, buffet counter and Gwalior artwork',
       title: 'Kalpview Pure Veg Restaurant',
       tag: 'Restaurant'
@@ -34,7 +35,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-3',
       category: 'scenic',
-      src: '/src/assets/images/img3.jpeg',
+      src: '../assets/images/img3.jpeg',
       alt: 'Elegantly set function hall with gold satin chairs and white tablecloths for a banquet',
       title: 'Decorated Banquet Function Hall',
       tag: 'Banquet Hall'
@@ -42,7 +43,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-4',
       category: 'dining',
-      src: '/src/assets/images/img4.jpeg',
+      src: '../assets/images/img4.jpeg',
       alt: 'Hotel Kalpview ground floor dining area with reception desk and staircase in background',
       title: 'Ground Floor Dining & Lobby View',
       tag: 'Dining Area'
@@ -50,7 +51,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-5',
       category: 'scenic',
-      src: '/src/assets/images/img5.jpeg',
+      src: '../assets/images/img5.jpeg',
       alt: 'Hotel Kalpview internal corridor with modern black granite elevator',
       title: 'Elevator & Hotel Corridor',
       tag: 'Hotel Interiors'
@@ -58,7 +59,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-6',
       category: 'scenic',
-      src: '/src/assets/images/img6.jpeg',
+      src: '../assets/images/img6.jpeg',
       alt: 'Open-air corridor with lattice jali windows and guest room doors',
       title: 'Open-Air Floor Walkway',
       tag: 'Common Areas'
@@ -66,7 +67,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-7',
       category: 'scenic',
-      src: '/src/assets/images/img7.jpeg',
+      src: '../assets/images/img7.jpeg',
       alt: 'Hotel Kalpview reception and lobby with orange wall, LED TV and Gwalior heritage photos',
       title: 'Hotel Reception & Lobby',
       tag: 'Main Entrance'
@@ -74,7 +75,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-8',
       category: 'rooms',
-      src: '/src/assets/images/img8.jpeg',
+      src: '../assets/images/img8.jpeg',
       alt: 'Neat hotel room with king-size bed, red and black cushions, AC and flat-screen TV',
       title: 'Executive King Bed Room',
       tag: 'Room Interiors'
@@ -82,7 +83,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-9',
       category: 'scenic',
-      src: '/src/assets/images/img9.jpeg',
+      src: '../assets/images/img9.jpeg',
       alt: 'Conference and meeting room with rows of leather chairs, projector screen and water service',
       title: 'Conference & Meeting Hall',
       tag: 'Conference Room'
@@ -90,7 +91,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-10',
       category: 'dining',
-      src: '/src/assets/images/img10.jpeg',
+      src: '../assets/images/img10.jpeg',
       alt: 'Spacious main restaurant hall with chandelier, purple LED ceiling lights and lush plants',
       title: 'Main Dining Hall – Kalpview Restaurant',
       tag: 'Pure Veg Dining'
@@ -98,7 +99,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-11',
       category: 'scenic',
-      src: '/src/assets/images/img11.jpeg',
+      src: '../assets/images/img11.jpeg',
       alt: 'Hotel Kalpview long corridor with warm yellow walls, red carpet and room doors',
       title: 'Guest Floor Corridor',
       tag: 'Hotel Corridors'
@@ -106,7 +107,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-12',
       category: 'scenic',
-      src: '/src/assets/images/img12.jpeg',
+      src: '../assets/images/img12.jpeg',
       alt: 'Hotel lounge and waiting area with sofa seating, mosaic wall art and arched wooden entrance door',
       title: 'Hotel Lounge & Waiting Area',
       tag: 'Lounge'
@@ -114,7 +115,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-13',
       category: 'scenic',
-      src: '/src/assets/images/img13.jpeg',
+      src: '../assets/images/img13.jpeg',
       alt: 'Wide-angle view of Kalpview banquet hall with flower wall stage, hanging florals and balloon decor',
       title: 'Grand Banquet Hall – Full View',
       tag: 'Events & Celebrations'
@@ -137,7 +138,7 @@ export default function PhotoGallery() {
   return (
     <section id="gallery-section" className="py-20 bg-slate-50 border-t border-brand-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Gallery Title Block */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-brand-600 block mb-3">
@@ -156,11 +157,10 @@ export default function PhotoGallery() {
               <button
                 key={tab.value}
                 onClick={() => setActiveTab(tab.value)}
-                className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all cursor-pointer ${
-                  activeTab === tab.value
-                    ? 'bg-brand-600 text-white shadow-sm'
-                    : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-800'
-                }`}
+                className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all cursor-pointer ${activeTab === tab.value
+                  ? 'bg-brand-600 text-white shadow-sm'
+                  : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-800'
+                  }`}
               >
                 {tab.label}
               </button>
@@ -185,7 +185,7 @@ export default function PhotoGallery() {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center" />
-                
+
                 {/* Floating look-up zoom icon */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11 h-11 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300 shadow-md">
                   <Eye className="w-5 h-5 text-brand-700" />
