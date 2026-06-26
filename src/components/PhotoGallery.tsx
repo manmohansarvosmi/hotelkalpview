@@ -18,52 +18,110 @@ export default function PhotoGallery() {
     {
       id: 'gal-1',
       category: 'scenic',
-      src: '/src/assets/images/hero_cover_1780309427412.png',
-      alt: 'Hotel Kalpview garden facade with Gwalior Fort in background',
-      title: 'Majestic Facade & Gardens',
-      tag: 'Main Courtyard'
+      src: '/src/assets/images/img1.jpeg',
+      alt: 'Kalpview banquet hall decorated with flower wall, hanging florals and balloon decor',
+      title: 'Celebration Banquet Hall',
+      tag: 'Events & Weddings'
     },
     {
       id: 'gal-2',
-      category: 'rooms',
-      src: '/src/assets/images/deluxe_room_1780309447360.png',
-      alt: 'Deluxe Suite with cozy linens and forest green theme',
-      title: 'Royal Fort View Suite Interior',
-      tag: 'Suites'
+      category: 'dining',
+      src: '/src/assets/images/img2.jpeg',
+      alt: 'Kalpview air-conditioned restaurant with orange walls, buffet counter and Gwalior artwork',
+      title: 'Kalpview Pure Veg Restaurant',
+      tag: 'Restaurant'
     },
     {
       id: 'gal-3',
-      category: 'dining',
-      src: '/src/assets/images/rooftop_dining_1780309465417.png',
-      alt: 'Rooftop canopy dining under the lit Gwalior Fort',
-      title: 'Kalpview Canopy Dining Deck',
-      tag: 'Pure Veg Restaurant'
+      category: 'scenic',
+      src: '/src/assets/images/img3.jpeg',
+      alt: 'Elegantly set function hall with gold satin chairs and white tablecloths for a banquet',
+      title: 'Decorated Banquet Function Hall',
+      tag: 'Banquet Hall'
     },
     {
       id: 'gal-4',
-      category: 'rooms',
-      src: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&q=80&w=800',
-      alt: 'Executive Family Interconnected Room layouts',
-      title: 'Executive Dual Queen Suite',
-      tag: 'Family Rooms'
+      category: 'dining',
+      src: '/src/assets/images/img4.jpeg',
+      alt: 'Hotel Kalpview ground floor dining area with reception desk and staircase in background',
+      title: 'Ground Floor Dining & Lobby View',
+      tag: 'Dining Area'
     },
     {
       id: 'gal-5',
-      category: 'dining',
-      src: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800',
-      alt: 'Traditional cuisine served in direct hospitality sets',
-      title: 'Gourmet North & South Platters',
-      tag: 'Authentic Menus'
+      category: 'scenic',
+      src: '/src/assets/images/img5.jpeg',
+      alt: 'Hotel Kalpview internal corridor with modern black granite elevator',
+      title: 'Elevator & Hotel Corridor',
+      tag: 'Hotel Interiors'
     },
     {
       id: 'gal-6',
       category: 'scenic',
-      src: 'https://images.unsplash.com/photo-1626294520247-497de26cd37e?auto=format&fit=crop&q=80&w=800',
-      alt: 'Imposing walls of historical Gwalior Fort',
-      title: 'Gwalior Fort At Twilight',
-      tag: '1.8 km Scenic View'
-    }
+      src: '/src/assets/images/img6.jpeg',
+      alt: 'Open-air corridor with lattice jali windows and guest room doors',
+      title: 'Open-Air Floor Walkway',
+      tag: 'Common Areas'
+    },
+    {
+      id: 'gal-7',
+      category: 'scenic',
+      src: '/src/assets/images/img7.jpeg',
+      alt: 'Hotel Kalpview reception and lobby with orange wall, LED TV and Gwalior heritage photos',
+      title: 'Hotel Reception & Lobby',
+      tag: 'Main Entrance'
+    },
+    {
+      id: 'gal-8',
+      category: 'rooms',
+      src: '/src/assets/images/img8.jpeg',
+      alt: 'Neat hotel room with king-size bed, red and black cushions, AC and flat-screen TV',
+      title: 'Executive King Bed Room',
+      tag: 'Room Interiors'
+    },
+    {
+      id: 'gal-9',
+      category: 'scenic',
+      src: '/src/assets/images/img9.jpeg',
+      alt: 'Conference and meeting room with rows of leather chairs, projector screen and water service',
+      title: 'Conference & Meeting Hall',
+      tag: 'Conference Room'
+    },
+    {
+      id: 'gal-10',
+      category: 'dining',
+      src: '/src/assets/images/img10.jpeg',
+      alt: 'Spacious main restaurant hall with chandelier, purple LED ceiling lights and lush plants',
+      title: 'Main Dining Hall – Kalpview Restaurant',
+      tag: 'Pure Veg Dining'
+    },
+    {
+      id: 'gal-11',
+      category: 'scenic',
+      src: '/src/assets/images/img11.jpeg',
+      alt: 'Hotel Kalpview long corridor with warm yellow walls, red carpet and room doors',
+      title: 'Guest Floor Corridor',
+      tag: 'Hotel Corridors'
+    },
+    {
+      id: 'gal-12',
+      category: 'scenic',
+      src: '/src/assets/images/img12.jpeg',
+      alt: 'Hotel lounge and waiting area with sofa seating, mosaic wall art and arched wooden entrance door',
+      title: 'Hotel Lounge & Waiting Area',
+      tag: 'Lounge'
+    },
+    {
+      id: 'gal-13',
+      category: 'scenic',
+      src: '/src/assets/images/img13.jpeg',
+      alt: 'Wide-angle view of Kalpview banquet hall with flower wall stage, hanging florals and balloon decor',
+      title: 'Grand Banquet Hall – Full View',
+      tag: 'Events & Celebrations'
+    },
   ];
+
+
 
   const filteredItems = galleryItems.filter(
     (item) => activeTab === 'all' || item.category === activeTab

@@ -9,7 +9,7 @@ export interface Room {
   image: string;
   amenities: string[];
   bedType: string;
-  tier: 'Suite' | 'Deluxe' | 'Executive' | 'Standard';
+  tier: 'Royal Executive' | 'Executive' | 'Semi Executive';
   rating: number;
   ratingCount: number;
   availableCount: number;
@@ -47,6 +47,7 @@ export interface Service {
   id: string;
   title: string;
   description: string;
+  image?: string;
   category: 'accommodation' | 'dining' | 'experience' | 'amenity';
 }
 

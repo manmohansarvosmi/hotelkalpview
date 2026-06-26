@@ -1,6 +1,8 @@
 import { Calendar, Users, MapPin, Sparkles, Award, Star } from 'lucide-react';
 import React, { useState, FormEvent } from 'react';
 
+import heroImg1 from '../assets/images/image1.jpg';
+
 interface HeroProps {
   onSearch: (checkIn: string, checkOut: string, guests: number, tier: string) => void;
   onNavigateToRooms: () => void;
@@ -38,15 +40,16 @@ export default function Hero({ onSearch, onNavigateToRooms }: HeroProps) {
       id="hero-section"
       className="relative min-h-screen flex flex-col justify-center items-center pt-20 pb-16 px-4 overflow-hidden"
     >
-      {/* Background image styled with rich dark gradient overlays for conversion and readability */}
+      {/* Hero background: single hotel photo */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_cover_1780309427412.png"
-          alt="Hotel Kalpview Gwalior Entrance"
-          className="w-full h-full object-cover object-center scale-102 transition-transform duration-[10000ms] ease-out select-none"
-          referrerPolicy="no-referrer"
+          src={heroImg1}
+          alt="Hotel Kalpview Gwalior"
+          className="w-full h-full object-cover object-center select-none"
+          draggable={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-950/70 z-10" />
+        {/* Subtle gradient overlay — lighter so image stays vivid */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/30 to-slate-950/40 z-10" />
       </div>
 
       {/* Decorative Brand Accent - Subtle Tree Leaf floating icons or ambient lights */}
@@ -163,10 +166,9 @@ export default function Hero({ onSearch, onNavigateToRooms }: HeroProps) {
                 className="w-full bg-slate-50 text-slate-800 border border-slate-200 hover:border-slate-300 focus:border-brand-500 rounded-xl px-3 py-2.5 text-sm font-medium focus:ring-2 focus:ring-brand-100 outline-none transition-all cursor-pointer"
               >
                 <option value="All">All Categories</option>
-                <option value="Suite">Suites (Fort View)</option>
-                <option value="Deluxe">Heritage Deluxe</option>
-                <option value="Executive">Executive Family</option>
-                <option value="Standard">Standard Cozy</option>
+                <option value="Royal Executive">Royal Executive</option>
+                <option value="Executive">Executive Comfort</option>
+                <option value="Semi Executive">Semi Executive</option>
               </select>
             </div>
 
@@ -207,6 +209,8 @@ export default function Hero({ onSearch, onNavigateToRooms }: HeroProps) {
           </div>
         </div>
       </div>
+
+
 
       {/* Custom bounce scrolling down indicator */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 animate-bounce hidden sm:block">

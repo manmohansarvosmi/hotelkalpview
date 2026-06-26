@@ -1,5 +1,5 @@
 import { GWALIOR_ATTRACTIONS } from '../constants';
-import { Landmark, Compass, Clock, MapPin, Eye, ExternalLink } from 'lucide-react';
+import { MapPin, ExternalLink } from 'lucide-react';
 
 export default function GwaliorGuide() {
   return (
@@ -85,7 +85,7 @@ export default function GwaliorGuide() {
                 Our Physical Location & Directions
               </h3>
               <p className="text-xs sm:text-sm text-brand-100 font-light leading-relaxed">
-                Hotel Kalpview is situated at <strong>26.2005° N, 78.1500° E</strong>, Gwalior (Madhya Pradesh), India. Only 1.8km to Gwalior Fort stairs and 1.5km to Gwalior Railway Junction.
+                Hotel Kalpview is situated at <strong>26.2005° N, 78.1500° E</strong>, Gwalior (Madhya Pradesh), India. Only 3.5 km to Gwalior Fort and 1.5 km to Gwalior Railway Junction.
               </p>
 
               {/* Bullet Info */}
@@ -115,63 +115,19 @@ export default function GwaliorGuide() {
               </div>
             </div>
 
-            {/* Right Map Canvas Visual Drawing */}
-            <div className="lg:col-span-6 bg-slate-900 border border-brand-800 rounded-2xl p-4 sm:p-5 h-80 flex flex-col justify-between relative shadow-inner overflow-hidden select-none">
-              
-              {/* Detailed Visual Map Drawing */}
-              <div className="absolute inset-0 bg-slate-950 opacity-40" />
-              <div className="relative z-10 w-full h-full flex flex-col justify-between">
-                
-                {/* Header coordinates */}
-                <div className="flex justify-between items-center bg-slate-900/80 backdrop-blur-md px-3 py-1.5 border border-slate-800 rounded-lg text-[10px] font-mono text-slate-400">
-                  <span>GPS Track: @26.2005° N, 78.1500° E</span>
-                  <span className="text-emerald-400 font-bold">&#9679; LIVE RADAR</span>
-                </div>
-
-                {/* SVG Visual Map Art */}
-                <div className="flex-1 w-full flex items-center justify-center relative">
-                  
-                  {/* Decorative curved roads representing Gwalior hills */}
-                  <svg className="absolute inset-0 w-full h-full text-slate-800 stroke-current opacity-65 fill-none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 0,150 Q 80,100 180,160 T 400,100" strokeWidth="6" strokeLinecap="round" />
-                    <path d="M 120,0 L 120,300" strokeWidth="4" strokeDasharray="5,5" />
-                    <path d="M 50,60 Q 200,200 350,230" strokeWidth="3" />
-                  </svg>
-
-                  {/* Central Landmark pins */}
-                  <div className="absolute top-[40%] left-[30%] flex flex-col items-center animate-pulse">
-                    <div className="bg-brand-600 text-white p-1.5 rounded-full ring-4 ring-brand-900/35 shadow-md">
-                      <Landmark className="w-4 h-4 text-brand-100" />
-                    </div>
-                    <span className="text-[9px] font-mono bg-slate-900/90 text-brand-300 px-2 py-0.5 rounded border border-brand-800 mt-1 font-bold">
-                      Hotel Kalpview
-                    </span>
-                  </div>
-
-                  <div className="absolute top-[18%] left-[70%] flex flex-col items-center opacity-75">
-                    <div className="bg-slate-800 text-slate-300 p-1.5 rounded-full ring-2 ring-slate-700/50 shadow">
-                      <Landmark className="w-3 h-3 text-slate-400" />
-                    </div>
-                    <span className="text-[8px] font-mono bg-slate-900/90 text-slate-400 px-1.5 py-0.2 rounded border border-slate-800 mt-1">
-                      Gwalior Fort hill
-                    </span>
-                  </div>
-
-                  <div className="absolute top-[75%] left-[55%] flex flex-col items-center opacity-75">
-                    <div className="bg-slate-800 text-slate-300 p-1.5 rounded-full ring-2 ring-slate-700/50 shadow">
-                      <Compass className="w-3 h-3 text-slate-400" />
-                    </div>
-                    <span className="text-[8px] font-mono bg-slate-900/90 text-slate-400 px-1.5 py-0.2 rounded border border-slate-800 mt-1">
-                      Gwalior Rly Station
-                    </span>
-                  </div>
-                </div>
-
-                <div className="bg-slate-900/90 backdrop-blur border border-slate-800 p-2.5 rounded-lg text-[10px] text-slate-200">
-                  <p className="font-semibold text-emerald-400">Convenience Alert:</p>
-                  <p className="text-slate-400 text-[10px] sm:text-[11px] font-light">Free station pickup is coordinated via physical AC shuttle cars inside 10 minutes. Click the call button or check it when completing booking.</p>
-                </div>
-              </div>
+            {/* Real Google Maps Embed */}
+            <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-brand-800 shadow-inner h-80 relative">
+              <iframe
+                title="Hotel Kalpview Location Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.4!2d78.1474854!3d26.2005302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c5d18e24fcb9%3A0x2d414420d8c44372!2sHotel%20Kalpview!5e0!3m2!1sen!2sin!4v1719380000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
             </div>
           </div>
         </div>

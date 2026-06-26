@@ -5,8 +5,8 @@
 // Replace these placeholders with your actual Bot Token and Chat ID
 // To get a Bot Token, message @BotFather on Telegram.
 // To get your Chat ID, message @userinfobot or use a bot like @GetIDsBot.
-const TELEGRAM_BOT_TOKEN = '8635574509:AAFKE44KgWANSJB5x8ld6QJauxmyWTUSP3E';
-const TELEGRAM_CHAT_ID = '999142480'; 
+const TELEGRAM_BOT_TOKEN = '8840786670:AAG5ZGQeLMZAh5cuytxqsTwcxn0f5SxWy_Y';
+const TELEGRAM_CHAT_ID = '43247035';
 
 export const sendTelegramMessage = async (message: string) => {
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;

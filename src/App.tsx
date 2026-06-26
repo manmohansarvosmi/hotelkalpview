@@ -12,6 +12,9 @@ import PhotoGallery from './components/PhotoGallery';
 import GwaliorGuide from './components/GwaliorGuide';
 import BookingDashboard from './components/BookingDashboard';
 import RoomBookingModal from './components/RoomBookingModal';
+import TariffPage from './components/TariffPage';
+import BookingPage from './components/BookingPage';
+import AdminRoomManager from './components/AdminRoomManager';
 import { Room, Booking } from './types';
 import { HOTEL_ROOMS } from './constants';
 import { Landmark, Shield, CheckCircle2, ChevronRight, MessageSquare, Heart, Award, ArrowUp, Zap } from 'lucide-react';
@@ -21,6 +24,7 @@ export default function App() {
   const [selectedRoomToBook, setSelectedRoomToBook] = useState<Room | null>(null);
   const [isMyBookingsOpen, setIsMyBookingsOpen] = useState(false);
   const [selectedTierFilter, setSelectedTierFilter] = useState('All');
+  const [currentView, setCurrentView] = useState('Home');
   
   // Track parameters searched in the hero search widget to pass down to the booking modal as pre-fills!
   const [searchCheckIn, setSearchCheckIn] = useState('');
@@ -68,6 +72,13 @@ export default function App() {
     localStorage.setItem('kalpview_bookings', JSON.stringify(updated));
     setSelectedRoomToBook(null);
     
+    // Sync to DB
+    fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:4000'}/api/bookings`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newBooking),
+    }).catch(err => console.error('DB Sync Error:', err));
+
     // Show success ticket banner
     setShowSuccessNotification(newBooking);
     
@@ -127,37 +138,56 @@ export default function App() {
         </div>
       )}
 
+      {/* Admin mode top strip */}
+      {currentView === 'Admin' && (
+        <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900 text-white text-xs font-bold px-6 py-2 flex items-center justify-between">
+          <span className="text-brand-300 font-mono uppercase tracking-widest">🔒 Admin Mode — Room Manager</span>
+          <button onClick={() => setCurrentView('Home')} className="text-slate-400 hover:text-white transition flex items-center gap-1.5">← Back to Site</button>
+        </div>
+      )}
+
       {/* Main Unified Header Navigation */}
       <Navbar
+        currentView={currentView}
+        onSetView={setCurrentView}
         onNavigateToSection={handleNavigateToSection}
         onOpenMyBookings={() => setIsMyBookingsOpen(true)}
-        onOpenBookingModalWithDefaults={handleOpenBookingModalWithDefaults}
+        onOpenBookingModalWithDefaults={() => {
+          setCurrentView('Booking');
+          handleOpenBookingModalWithDefaults();
+        }}
         activeBookingsCount={activeBookingsCount}
       />
 
       <main className="flex-1">
         
-        {/* Core Landing Hero Layout */}
-        <Hero
-          onSearch={handleHeroSearch}
-          onNavigateToRooms={() => handleNavigateToSection('rooms-section')}
-        />
+        {currentView === 'Home' && (
+          <>
+            <Hero
+              onSearch={(in_d, out_d, g, c) => {
+                handleHeroSearch(in_d, out_d, g, c);
+                setCurrentView('Booking');
+              }}
+              onNavigateToRooms={() => setCurrentView('Booking')}
+            />
 
-        {/* Room grid selection panel with reservation handler */}
-        <SearchAndRooms
-          onSelectRoomToBook={setSelectedRoomToBook}
-          selectedTierFilter={selectedTierFilter}
-          setSelectedTierFilter={setSelectedTierFilter}
-        />
+            <ServiceDescriptions />
+            <PhotoGallery />
+            <GwaliorGuide />
+          </>
+        )}
 
-        {/* Service descriptions emphasizing Gwalior dining, station picks, guides */}
-        <ServiceDescriptions />
+        {currentView === 'Tariff' && <TariffPage onSelectRoomToBook={setSelectedRoomToBook} />}
 
-        {/* High-fidelity visual photo gallery */}
-        <PhotoGallery />
+        {currentView === 'Booking' && (
+          <BookingPage
+            onSelectRoomToBook={setSelectedRoomToBook}
+            selectedTierFilter={selectedTierFilter}
+            setSelectedTierFilter={setSelectedTierFilter}
+          />
+        )}
 
-        {/* Gwalior heritage exploration guide and visual physical map representation */}
-        <GwaliorGuide />
+        {currentView === 'Admin' && <AdminRoomManager />}
 
       </main>
 
@@ -229,7 +259,13 @@ export default function App() {
 
         {/* Separator line & copyright */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} Hotel Kalpview Booking Platform. All rights reserved.</p>
+          <p
+            onDoubleClick={() => setCurrentView('Admin')}
+            title=""
+            className="cursor-default select-none"
+          >
+            © {new Date().getFullYear()} Hotel Kalpview Booking Platform. All rights reserved.
+          </p>
           <p className="flex items-center space-x-1">
             <span>Made with Indian Heritage Hospitality</span>
             <Heart className="w-3 h-3 text-rose-500 shrink-0 fill-rose-500" />

@@ -20,10 +20,9 @@ export default function SearchAndRooms({
   // Dynamic Tiers List for filtering buttons
   const tiers = [
     { label: 'All Styles', value: 'All' },
-    { label: 'Royal Suites', value: 'Suite' },
-    { label: 'Heritage Deluxe', value: 'Deluxe' },
-    { label: 'Family Executive', value: 'Executive' },
-    { label: 'Standard Cozy', value: 'Standard' },
+    { label: 'Royal Executive', value: 'Royal Executive' },
+    { label: 'Executive Comfort', value: 'Executive' },
+    { label: 'Semi Executive', value: 'Semi Executive' },
   ];
 
   // Client-Side Room Filtering Logic

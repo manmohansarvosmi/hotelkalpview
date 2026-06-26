@@ -102,27 +102,41 @@ export default function ServiceDescriptions() {
         </div>
 
         {/* Highlight Service Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className="bg-slate-50 hover:bg-brand-50/20 rounded-2xl border border-slate-200/50 hover:border-brand-300/30 p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-0.5"
+              className="bg-white hover:bg-brand-50/10 rounded-3xl border border-slate-100 hover:border-brand-200 shadow-sm hover:shadow-xl p-0 flex flex-col overflow-hidden transition-all duration-500 group hover:-translate-y-1"
             >
-              <div>
-                <div className="w-10 h-10 bg-white shadow-sm rounded-xl border border-slate-100 flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
-                  {getServiceIcon(service.id)}
+              {service.image && (
+                <div className="h-48 overflow-hidden relative">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <h3 className="text-base font-bold text-slate-800 mb-2 leading-tight">
-                  {service.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-500 font-light leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
+              )}
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className={`w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 group-hover:bg-brand-600 group-hover:rotate-[360deg]`}>
+                    <div className="group-hover:text-white transition-colors">
+                      {getServiceIcon(service.id)}
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-800 mb-2 leading-tight group-hover:text-brand-700 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-slate-500 font-light leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
 
-              <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-brand-700 font-semibold select-none">
-                <span>Complimentary Stay Inclusion</span>
-                <ChevronRight className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" />
+                <div className="pt-6 mt-6 border-t border-slate-50 flex items-center justify-between text-xs text-brand-600 font-bold tracking-wide uppercase select-none">
+                  <span>Included Service</span>
+                  <ChevronRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </div>
           ))}

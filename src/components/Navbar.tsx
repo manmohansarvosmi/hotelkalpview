@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Shield, BookOpen, Calendar, Menu, X, Landmark, UserCheck } from 'lucide-react';
 
 interface NavbarProps {
+  currentView: string;
+  onSetView: (view: string) => void;
   onNavigateToSection: (sectionId: string) => void;
   onOpenMyBookings: () => void;
   onOpenBookingModalWithDefaults: () => void;
@@ -9,6 +11,8 @@ interface NavbarProps {
 }
 
 export default function Navbar({
+  currentView,
+  onSetView,
   onNavigateToSection,
   onOpenMyBookings,
   onOpenBookingModalWithDefaults,
@@ -30,14 +34,26 @@ export default function Navbar({
   }, []);
 
   const menuItems = [
-    { label: 'Rooms', id: 'rooms-section' },
-    { label: 'Hotel Amenities', id: 'services-section' },
-    { label: 'Photo Gallery', id: 'gallery-section' },
-    { label: 'Gwalior Guide', id: 'guide-section' },
+    { label: 'Home', view: 'Home' },
+    { label: 'Tariff', view: 'Tariff' },
+    { label: 'Reserve Now', view: 'Booking' },
+    { label: 'Amenities', id: 'services-section' },
+    { label: 'Gallery', id: 'gallery-section' },
+    { label: 'Guide', id: 'guide-section' },
   ];
 
-  const handleLinkClick = (id: string) => {
-    onNavigateToSection(id);
+  const handleLinkClick = (item: any) => {
+    if (item.view) {
+      onSetView(item.view);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (item.id) {
+      if (currentView !== 'Home') {
+        onSetView('Home');
+        setTimeout(() => onNavigateToSection(item.id), 100);
+      } else {
+        onNavigateToSection(item.id);
+      }
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -55,7 +71,10 @@ export default function Navbar({
           {/* Logo Brand Emblem */}
           <button
             id="brand-logo"
-            onClick={() => handleLinkClick('hero-section')}
+            onClick={() => {
+              onSetView('Home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="flex items-center space-x-3 cursor-pointer group text-left"
           >
             {/* Elegant SVG Tree Logo matching the user's uploaded logo exactly */}
@@ -109,11 +128,11 @@ export default function Navbar({
           <div className="hidden md:flex items-center space-x-7">
             {menuItems.map((item) => (
               <button
-                key={item.id}
-                onClick={() => handleLinkClick(item.id)}
+                key={item.label}
+                onClick={() => handleLinkClick(item)}
                 className={`text-sm font-medium tracking-wide transition-colors cursor-pointer hover:text-brand-500 py-1 border-b border-transparent hover:border-brand-500/30 ${
                   isScrolled ? 'text-slate-600' : 'text-slate-100 hover:text-white'
-                }`}
+                } ${ (item.view === currentView) ? 'border-brand-500 text-brand-600' : ''}`}
               >
                 {item.label}
               </button>
@@ -121,6 +140,20 @@ export default function Navbar({
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
+            {/* Admin Command Center */}
+            <button
+              id="nav-admin-button"
+              onClick={() => onSetView('Admin')}
+              className={`flex items-center space-x-2 text-sm font-medium px-4 py-2 rounded-lg transition-all ${
+                isScrolled
+                  ? 'text-slate-700 bg-slate-100 hover:bg-slate-200'
+                  : 'text-white bg-white/10 hover:bg-white/20'
+              }`}
+            >
+              <Shield className="w-4 h-4 text-brand-500" />
+              <span>Admin</span>
+            </button>
+
             {/* Manage/My Bookings Dashboard Button */}
             <button
               id="nav-bookings-button"
@@ -184,43 +217,59 @@ export default function Navbar({
           <div className="px-4 pt-3 pb-6 space-y-3">
             {menuItems.map((item) => (
               <button
-                key={item.id}
-                onClick={() => handleLinkClick(item.id)}
-                className="block w-full text-left px-4 py-2.5 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 text-base font-medium transition-colors"
+                key={item.label}
+                onClick={() => handleLinkClick(item)}
+                className={`block w-full text-left px-4 py-2.5 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-700 text-base font-medium transition-colors ${
+                  item.view === currentView ? 'bg-brand-50 text-brand-700' : ''
+                }`}
               >
                 {item.label}
               </button>
             ))}
             <hr className="border-slate-100 my-2" />
             
-            <div className="grid grid-cols-2 gap-3 px-2 pt-2">
+            <div className="px-2 space-y-3">
               <button
-                id="mobile-nav-stays"
+                id="mobile-nav-admin"
                 onClick={() => {
-                  onOpenMyBookings();
+                  onSetView('Admin');
                   setIsMobileMenuOpen(false);
                 }}
-                className="flex items-center justify-center space-x-1.5 px-3 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-medium text-sm bg-slate-50 hover:bg-slate-100 transition-colors"
+                className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-slate-900 text-white rounded-xl font-bold text-sm shadow-lg shadow-slate-200"
               >
-                <UserCheck className="w-4 h-4 text-brand-600" />
-                <span>My Stays</span>
-                {activeBookingsCount > 0 && (
-                  <span className="ml-1 bg-brand-600 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">
-                    {activeBookingsCount}
-                  </span>
-                )}
+                <Shield className="w-4 h-4 text-brand-300" />
+                <span>Admin Panel</span>
               </button>
-              
-              <button
-                id="mobile-nav-book"
-                onClick={() => {
-                  onOpenBookingModalWithDefaults();
-                  setIsMobileMenuOpen(false);
-                }}
-                className="px-3 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-semibold text-sm shadow-sm transition-colors text-center"
-              >
-                Book Row
-              </button>
+
+              <div className="grid grid-cols-2 gap-3 pb-2">
+                <button
+                  id="mobile-nav-stays"
+                  onClick={() => {
+                    onOpenMyBookings();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center justify-center space-x-1.5 px-3 py-2.5 border border-slate-200 rounded-lg text-slate-700 font-medium text-sm bg-slate-50 hover:bg-slate-100 transition-colors"
+                >
+                  <UserCheck className="w-4 h-4 text-brand-600" />
+                  <span>My Stays</span>
+                  {activeBookingsCount > 0 && (
+                    <span className="ml-1 bg-brand-600 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">
+                      {activeBookingsCount}
+                    </span>
+                  )}
+                </button>
+                
+                <button
+                  id="mobile-nav-book"
+                  onClick={() => {
+                    onOpenBookingModalWithDefaults();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="px-3 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-semibold text-sm shadow-sm transition-colors text-center"
+                >
+                  Book Now
+                </button>
+              </div>
             </div>
           </div>
         </div>
