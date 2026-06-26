@@ -1,5 +1,13 @@
 import { Room, Attraction, Service, Review } from './types';
 
+import img8 from './assets/images/img8.jpeg';
+import gwalior_fort from './assets/images/gwalior_fort.jpg';
+import jai_vilas_palace from './assets/images/jai_vilas_palace.jpg';
+import siddhachal_sculptures from './assets/images/siddhachal_sculptures.jpg';
+import surya_mandir from './assets/images/surya_mandir.jpg';
+import img10 from './assets/images/img10.jpeg';
+import img2 from './assets/images/img2.jpeg';
+
 export const HOTEL_ROOMS: Room[] = [
   {
     id: '1',
@@ -9,7 +17,7 @@ export const HOTEL_ROOMS: Room[] = [
     view: 'Panoramic Gwalior Fort View',
     maxGuests: 3,
     pricePerNight: 2000,
-    image: '/src/assets/images/img8.jpeg',
+    image: img8,
     amenities: ['Fort Facing Balcony', 'Complimentary Breakfast', 'High-Speed Wi-Fi', 'Smart TV with Streaming', 'Premium Tea Station', 'In-Room Safe', 'Air Conditioning', 'Bathrobes & Jetted Tub'],
     bedType: 'Ultra King Bed',
     tier: 'Royal Executive',
@@ -25,7 +33,7 @@ export const HOTEL_ROOMS: Room[] = [
     view: 'Lush Garden Courtyard View',
     maxGuests: 2,
     pricePerNight: 1600,
-    image: '/src/assets/images/img8.jpeg',
+    image: img8,
     amenities: ['Garden View', 'Complimentary Breakfast', 'High-Speed Wi-Fi', 'LED TV', 'Mini Fridge', 'Tea/Coffee Maker', 'Premium Toiletries', 'Air Conditioning'],
     bedType: 'Luxury King Bed',
     tier: 'Executive',
@@ -41,7 +49,7 @@ export const HOTEL_ROOMS: Room[] = [
     view: 'Quiet Gwalior City View',
     maxGuests: 2,
     pricePerNight: 1200,
-    image: '/src/assets/images/img8.jpeg',
+    image: img8,
     amenities: ['Complimentary Wi-Fi', 'Pure Veg Dining Discounts', 'LED TV', 'Coffee Maker', 'Plush Bedding', 'Air Conditioning', 'Daily Newspaper'],
     bedType: 'Royal Double Bed',
     tier: 'Semi Executive',
@@ -57,7 +65,7 @@ export const GWALIOR_ATTRACTIONS: Attraction[] = [
     name: 'Gwalior Fort',
     distance: '3.5 km from Hotel',
     description: 'Often referred to as "the pearl amongst fortresses in India", this imposing hill fort has majestic blue tiled walls, stunning palaces, and deep historic significance dating back over 1000 years.',
-    image: '/src/assets/images/gwalior_fort.jpg',
+    image: gwalior_fort,
     tag: 'Must Visit'
   },
   {
@@ -65,7 +73,7 @@ export const GWALIOR_ATTRACTIONS: Attraction[] = [
     name: 'Jai Vilas Palace',
     distance: '2.7 km from Hotel',
     description: 'A grand nineteenth-century palace boasting stunning Italianate and Tuscan architectural styles. Home to the legendary Scindia dynasty museum and two of the largest chandeliers in the world.',
-    image: '/src/assets/images/jai_vilas_palace.jpg',
+    image: jai_vilas_palace,
     tag: 'Historical'
   },
   {
@@ -73,7 +81,7 @@ export const GWALIOR_ATTRACTIONS: Attraction[] = [
     name: 'Siddhachal Jain Sculptures',
     distance: '4.0 km from Hotel',
     description: 'Magnificent rock-cut colossal statues of Jain Tirthankaras carved into the cliffs of Gwalior Fort hill, displaying majestic craftsmanship dating back to the 15th century.',
-    image: '/src/assets/images/siddhachal_sculptures.jpg',
+    image: siddhachal_sculptures,
     tag: 'Spiritual'
   },
   {
@@ -81,24 +89,27 @@ export const GWALIOR_ATTRACTIONS: Attraction[] = [
     name: 'Sun Temple (Surya Mandir)',
     distance: '7.0 km from Hotel',
     description: 'Inspired by the famous Konark Sun Temple, this modern red sandstone and white marble marvel is dedicated to the Sun God, surrounded by tranquil gardens.',
-    image: '/src/assets/images/surya_mandir.jpg',
+    image: surya_mandir,
     tag: 'Tranquil'
   }
 ];
+
+import kitty_party from './assets/images/kitty_party.jpg';
 
 export const HOTEL_SERVICES: Service[] = [
   {
     id: 'srv-1',
     title: 'Scenic Rooftop Dining',
     description: 'Indulge in pure veg culinary masterpieces at "Kalpview Canopy" overlooking the lit-up ramparts of Gwalior Fort at night.',
-    image: '/src/assets/images/img10.jpeg',
+    image: img10,
     category: 'dining'
   },
   {
     id: 'srv-2',
-    title: 'Complementary Station Pick-Up',
-    description: 'To welcome you home, we provide clean, AC shuttle pickup services from the Gwalior Railway Junction with prior intimation.',
-    category: 'experience'
+    title: 'Events & Celebrations (Kitty & Birthday Parties)',
+    description: 'We organize magnificent Birthday Parties, Kitty Parties, Wedding Receptions, and Banquets with custom catering packages designed specifically for your memorable events.',
+    category: 'experience',
+    image: kitty_party
   },
   {
     id: 'srv-3',
@@ -110,7 +121,7 @@ export const HOTEL_SERVICES: Service[] = [
     id: 'srv-4',
     title: 'Pure Vegetarian Culinary Kitchen',
     description: 'An elite multi-cuisine restaurant serving authentic regional Bundelkhand delicacies alongside standard North & South Indian menus.',
-    image: '/src/assets/images/img2.jpeg',
+    image: img2,
     category: 'dining'
   },
   {

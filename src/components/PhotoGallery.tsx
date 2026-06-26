@@ -1,6 +1,20 @@
 import { useState } from 'react';
 import { Eye, Image as ImageIcon, Layers, PlayCircle, Star } from 'lucide-react';
 
+import img1 from '../assets/images/img1.jpeg';
+import img2 from '../assets/images/img2.jpeg';
+import img3 from '../assets/images/img3.jpeg';
+import img4 from '../assets/images/img4.jpeg';
+import img5 from '../assets/images/img5.jpeg';
+import img6 from '../assets/images/img6.jpeg';
+import img7 from '../assets/images/img7.jpeg';
+import img8 from '../assets/images/img8.jpeg';
+import img9 from '../assets/images/img9.jpeg';
+import img10 from '../assets/images/img10.jpeg';
+import img11 from '../assets/images/img11.jpeg';
+import img12 from '../assets/images/img12.jpeg';
+import img13 from '../assets/images/img13.jpeg';
+
 interface GalleryItem {
   id: string;
   category: 'rooms' | 'dining' | 'scenic' | 'all';
@@ -18,8 +32,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-1',
       category: 'scenic',
-
-      src: '../assets/images/img1.jpeg',
+      src: img1,
       alt: 'Kalpview banquet hall decorated with flower wall, hanging florals and balloon decor',
       title: 'Celebration Banquet Hall',
       tag: 'Events & Weddings'
@@ -27,7 +40,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-2',
       category: 'dining',
-      src: '../assets/images/img2.jpeg',
+      src: img2,
       alt: 'Kalpview air-conditioned restaurant with orange walls, buffet counter and Gwalior artwork',
       title: 'Kalpview Pure Veg Restaurant',
       tag: 'Restaurant'
@@ -35,7 +48,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-3',
       category: 'scenic',
-      src: '../assets/images/img3.jpeg',
+      src: img3,
       alt: 'Elegantly set function hall with gold satin chairs and white tablecloths for a banquet',
       title: 'Decorated Banquet Function Hall',
       tag: 'Banquet Hall'
@@ -43,7 +56,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-4',
       category: 'dining',
-      src: '../assets/images/img4.jpeg',
+      src: img4,
       alt: 'Hotel Kalpview ground floor dining area with reception desk and staircase in background',
       title: 'Ground Floor Dining & Lobby View',
       tag: 'Dining Area'
@@ -51,7 +64,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-5',
       category: 'scenic',
-      src: '../assets/images/img5.jpeg',
+      src: img5,
       alt: 'Hotel Kalpview internal corridor with modern black granite elevator',
       title: 'Elevator & Hotel Corridor',
       tag: 'Hotel Interiors'
@@ -59,7 +72,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-6',
       category: 'scenic',
-      src: '../assets/images/img6.jpeg',
+      src: img6,
       alt: 'Open-air corridor with lattice jali windows and guest room doors',
       title: 'Open-Air Floor Walkway',
       tag: 'Common Areas'
@@ -67,7 +80,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-7',
       category: 'scenic',
-      src: '../assets/images/img7.jpeg',
+      src: img7,
       alt: 'Hotel Kalpview reception and lobby with orange wall, LED TV and Gwalior heritage photos',
       title: 'Hotel Reception & Lobby',
       tag: 'Main Entrance'
@@ -75,7 +88,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-8',
       category: 'rooms',
-      src: '../assets/images/img8.jpeg',
+      src: img8,
       alt: 'Neat hotel room with king-size bed, red and black cushions, AC and flat-screen TV',
       title: 'Executive King Bed Room',
       tag: 'Room Interiors'
@@ -83,7 +96,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-9',
       category: 'scenic',
-      src: '../assets/images/img9.jpeg',
+      src: img9,
       alt: 'Conference and meeting room with rows of leather chairs, projector screen and water service',
       title: 'Conference & Meeting Hall',
       tag: 'Conference Room'
@@ -91,7 +104,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-10',
       category: 'dining',
-      src: '../assets/images/img10.jpeg',
+      src: img10,
       alt: 'Spacious main restaurant hall with chandelier, purple LED ceiling lights and lush plants',
       title: 'Main Dining Hall – Kalpview Restaurant',
       tag: 'Pure Veg Dining'
@@ -99,7 +112,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-11',
       category: 'scenic',
-      src: '../assets/images/img11.jpeg',
+      src: img11,
       alt: 'Hotel Kalpview long corridor with warm yellow walls, red carpet and room doors',
       title: 'Guest Floor Corridor',
       tag: 'Hotel Corridors'
@@ -107,7 +120,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-12',
       category: 'scenic',
-      src: '../assets/images/img12.jpeg',
+      src: img12,
       alt: 'Hotel lounge and waiting area with sofa seating, mosaic wall art and arched wooden entrance door',
       title: 'Hotel Lounge & Waiting Area',
       tag: 'Lounge'
@@ -115,7 +128,7 @@ export default function PhotoGallery() {
     {
       id: 'gal-13',
       category: 'scenic',
-      src: '../assets/images/img13.jpeg',
+      src: img13,
       alt: 'Wide-angle view of Kalpview banquet hall with flower wall stage, hanging florals and balloon decor',
       title: 'Grand Banquet Hall – Full View',
       tag: 'Events & Celebrations'
